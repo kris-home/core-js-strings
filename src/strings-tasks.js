@@ -20,7 +20,10 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(value) {
-  return value.length();
+  if (typeof value !== 'string') {
+    return 0;
+  }
+  return value.length;
 }
 
 /**
@@ -37,8 +40,12 @@ function getStringLength(value) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  // eslint-disable-next-line no-new-wrappers
+  if (typeof value === 'string' || value instanceof String) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -53,8 +60,9 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
+  const result = '';
+  return result.concat(value1, value2);
 }
 
 /**
@@ -68,8 +76,8 @@ function concatenateStrings(/* value1, value2 */) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value.charAt(0);
 }
 
 /**
