@@ -321,8 +321,17 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowels = 'aeiouyAEIOUY';
+  let result = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    for (let a = 0; a < vowels.length; a += 1) {
+      if (str[i] === vowels[a]) {
+        result += 1;
+      }
+    }
+  }
+  return result;
 }
 
 /**
@@ -338,8 +347,25 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let result = '';
+  let sting = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === '!' || str[i] === '?') {
+      break;
+    }
+    while (str[i] === ' ' || str[i] === ',') {
+      i += 1;
+    }
+    if (i < str.length) {
+      sting += str[i];
+      result = str[i] + result;
+    }
+  }
+  if (sting.toLowerCase() === result.toLowerCase()) {
+    return true;
+  }
+  return false;
 }
 
 /**
